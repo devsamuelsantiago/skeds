@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "npx rimraf node_modules */**/node_modules */**/dist */**/.next",
+    "reset": "npm run clean && npm i"
   },
   "dependencies": {
     "@prisma/client": "^5.12.1",
