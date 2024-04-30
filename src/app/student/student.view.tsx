@@ -1,4 +1,3 @@
-import { Separator } from "@/components/ui/separator";
 import { Sidebar } from "./components/sidebar";
 import { Header } from "./components/header";
 import { Calendar } from "./components/calendar";
@@ -6,7 +5,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
