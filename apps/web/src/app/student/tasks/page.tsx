@@ -1,5 +1,10 @@
-import { TasksView } from "./tasks.view";
+import { TaskProvider } from './providers/task-provider';
+import { TasksView } from './tasks.view';
 
 export default function TasksPage() {
-  return <TasksView />;
+  return (
+    <TaskProvider>
+      <TasksView />
+    </TaskProvider>
+  );
 }
