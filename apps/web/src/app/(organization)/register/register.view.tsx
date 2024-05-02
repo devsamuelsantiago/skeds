@@ -1,17 +1,17 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Progress } from "@/components/ui/progress";
-import { CheckCircledIcon, MinusCircledIcon } from "@radix-ui/react-icons";
-import { useEffect, useState } from "react";
+'use client';
+import { Button } from '@/common/components/ui/button';
+import { Input } from '@/common/components/ui/input';
+import { Label } from '@/common/components/ui/label';
+import { Progress } from '@/common/components/ui/progress';
+import { CheckCircledIcon, MinusCircledIcon } from '@radix-ui/react-icons';
+import { useEffect, useState } from 'react';
 
 export default function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const [charMin, setCharMin] = useState(false);
   const [uppercaseChar, setUppercaseChar] = useState(false);
@@ -57,9 +57,7 @@ export default function Register() {
       symbolCounter = 0;
     }
 
-    setProgress(
-      charMinCounter + uppercaseCharCounter + numberCounter + symbolCounter
-    );
+    setProgress(charMinCounter + uppercaseCharCounter + numberCounter + symbolCounter);
 
     console.log(progress);
   }, [password]);
@@ -67,10 +65,10 @@ export default function Register() {
   const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     console.log(name, email, phone, password, confirmPassword);
 
-    await fetch("/api/auth/register", {
-      method: "POST",
+    await fetch('/api/auth/register', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name,
@@ -79,14 +77,13 @@ export default function Register() {
         password,
       }),
     });
-
   };
 
   return (
     <div className="flex h-screen bg-zinc-300">
       <form
         className="flex flex-col m-auto gap-5 p-8 w-[30%] h-min-[60%] h-max-[90%] bg-zinc-100 rounded-lg shadow-lg"
-        onSubmit={(e)=>handleOnSubmit(e)}
+        onSubmit={(e) => handleOnSubmit(e)}
       >
         <div className="flex h-[30%] w-full">
           <h1 className=" text-4xl w-min h-min m-auto">[logo]</h1>
@@ -153,41 +150,21 @@ export default function Register() {
             />
             <div className="flex flex-col gap-2">
               <div>
-                <p
-                  className={
-                    (charMin ? "text-green-500 " : "text-zinc-500 ") +
-                    "flex flex-row items-center gap-1"
-                  }
-                >
-                  {charMin ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha
-                  deve ter pelo menos 8 caracteres.
+                <p className={(charMin ? 'text-green-500 ' : 'text-zinc-500 ') + 'flex flex-row items-center gap-1'}>
+                  {charMin ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha deve ter pelo menos 8 caracteres.
                 </p>
                 <p
                   className={
-                    (uppercaseChar ? "text-green-500 " : "text-zinc-500 ") +
-                    "flex flex-row items-center gap-1"
+                    (uppercaseChar ? 'text-green-500 ' : 'text-zinc-500 ') + 'flex flex-row items-center gap-1'
                   }
                 >
-                  {uppercaseChar ? <CheckCircledIcon /> : <MinusCircledIcon />}A
-                  senha deve ter uma letra maiúscula.
+                  {uppercaseChar ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha deve ter uma letra maiúscula.
                 </p>
-                <p
-                  className={
-                    (number ? "text-green-500 " : "text-zinc-500 ") +
-                    "flex flex-row items-center gap-1"
-                  }
-                >
-                  {number ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha
-                  deve ter um número.
+                <p className={(number ? 'text-green-500 ' : 'text-zinc-500 ') + 'flex flex-row items-center gap-1'}>
+                  {number ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha deve ter um número.
                 </p>
-                <p
-                  className={
-                    (symbol ? "text-green-500 " : "text-zinc-500 ") +
-                    "flex flex-row items-center gap-1"
-                  }
-                >
-                  {symbol ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha
-                  deve ter um símbolo (!@#$%&*).
+                <p className={(symbol ? 'text-green-500 ' : 'text-zinc-500 ') + 'flex flex-row items-center gap-1'}>
+                  {symbol ? <CheckCircledIcon /> : <MinusCircledIcon />}A senha deve ter um símbolo (!@#$%&*).
                 </p>
               </div>
               <Progress value={(progress * 100) / 5} />
@@ -209,9 +186,7 @@ export default function Register() {
             />
             <div>
               {confirmPassword != password ? (
-                <p className="text-red-500 flex flex-row items-center gap-1">
-                  As senhas não correspondem
-                </p>
+                <p className="text-red-500 flex flex-row items-center gap-1">As senhas não correspondem</p>
               ) : null}
             </div>
           </div>

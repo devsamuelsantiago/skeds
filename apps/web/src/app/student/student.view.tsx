@@ -1,18 +1,8 @@
-import { Sidebar } from "./components/sidebar";
-import { Header } from "./components/header";
-import { Calendar } from "./components/calendar";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  ChatBubbleIcon,
-  DrawingPinIcon,
-  Pencil2Icon,
-} from "@radix-ui/react-icons";
+import { Sidebar } from './components/sidebar';
+import { Header } from './components/header';
+import { Calendar } from './components/calendar';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/common/components/ui/card';
+import { ChatBubbleIcon, DrawingPinIcon, Pencil2Icon } from '@radix-ui/react-icons';
 
 export function StudentView() {
   return (
@@ -75,7 +65,7 @@ export function StudentView() {
               </CardContent>
             </Card>
           </div>
-          <div className="w-full min-h-[35rem]">
+          <div className="w-full min-h-[50rem]">
             <Calendar />
           </div>
         </div>

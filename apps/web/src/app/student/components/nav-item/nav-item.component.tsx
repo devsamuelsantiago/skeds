@@ -1,11 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+'use client';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import {
   NavigationMenuItem,
   NavigationMenuLink,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from '@/common/components/ui/navigation-menu';
 
 type NavLinkProps = {
   href: string;
@@ -26,7 +26,7 @@ export function NavItem({ href, children }: NavLinkProps) {
       <Link href={href} legacyBehavior passHref>
         <NavigationMenuLink
           className={`${navigationMenuTriggerStyle()} bg-transparent gap-2 !w-full !justify-start ${
-            isActive && "!bg-accent !text-accent-foreground"
+            isActive && '!bg-accent !text-accent-foreground'
           }`}
         >
           {children}

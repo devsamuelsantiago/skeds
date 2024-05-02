@@ -1,23 +1,11 @@
-"use client";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import {
-  ChatBubbleIcon,
-  DrawingPinIcon,
-  HomeIcon,
-  Pencil2Icon,
-  PersonIcon,
-} from "@radix-ui/react-icons";
-import { NavItem } from "../nav-item";
+'use client';
+import { NavigationMenu, NavigationMenuList } from '@/common/components/ui/navigation-menu';
+import { CalendarIcon, ChatBubbleIcon, DrawingPinIcon, HomeIcon, Pencil2Icon, PersonIcon } from '@radix-ui/react-icons';
+import { NavItem } from '../nav-item';
 
 export function Sidebar() {
   return (
-    <NavigationMenu
-      orientation="vertical"
-      className="items-start justify-start"
-    >
+    <NavigationMenu orientation="vertical" className="items-start justify-start">
       <NavigationMenuList className="flex-col items-center justify-start space-x-0 gap-[0.1rem] py-3 min-w-48">
         <NavItem href="/student">
           <HomeIcon width={18} height={18} />
@@ -30,6 +18,10 @@ export function Sidebar() {
         <NavItem href="/student/releases">
           <DrawingPinIcon width={18} height={18} />
           Comunicados
+        </NavItem>
+        <NavItem href="/student/releases">
+          <CalendarIcon width={18} height={18} />
+          Eventos
         </NavItem>
         <NavItem href="/student/chats">
           <ChatBubbleIcon width={18} height={18} />
