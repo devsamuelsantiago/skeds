@@ -4,6 +4,8 @@
     "build": "lerna run build",
     "start": "lerna run start",
     "test": "lerna run test",
+    "test:api": "yarn workspace @skeds/api test",
+    "test:api:watch": "yarn workspace @skeds/api test:watch",
     "dev": "lerna run dev",
     "dev:web": "yarn workspace @skeds/web dev",
     "dev:api": "yarn workspace @skeds/api dev",

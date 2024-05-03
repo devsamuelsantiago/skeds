@@ -13,6 +13,6 @@ describe('PingController', () => {
   });
 
   it('should return "Pong!"', () => {
-    expect(controller.getPong()).toBe({message:"Pong!"});
+    expect(controller.getPong().message).toBe("Pong!");
   });
 });
