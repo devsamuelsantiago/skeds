@@ -1,4 +1,5 @@
 'use client';
+import { TaskType } from '@/common/models/task';
 import { createContext, useContext, useMemo, useState } from 'react';
 
 type TaskProviderProps = {
@@ -6,16 +7,16 @@ type TaskProviderProps = {
 };
 
 type TaskContextProps = {
-  taskId: string | undefined;
-  setTaskId: (id: string) => void;
+  task: TaskType | undefined;
+  setTask: (task: TaskType) => void;
 } & Omit<TaskProviderProps, 'children'>;
 
 const TaskContext = createContext<TaskContextProps>(undefined!);
 
 export const TaskProvider = ({ children }: TaskProviderProps) => {
-  const [taskId, setTaskId] = useState<string>();
+  const [task, setTask] = useState<TaskType>();
 
-  const values = useMemo(() => ({ taskId, setTaskId }), [taskId, setTaskId]);
+  const values = useMemo(() => ({ task, setTask }), [task, setTask]);
 
   return <TaskContext.Provider value={values}>{children}</TaskContext.Provider>;
 };

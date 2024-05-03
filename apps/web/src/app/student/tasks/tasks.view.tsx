@@ -1,10 +1,10 @@
 import { Sidebar } from '../components/sidebar';
 import { Header } from '../components/header';
-import { Task } from './components/task';
 import { tasks } from '@/test_api/tasks';
-import { Dialog, DialogTrigger } from '@/common/components/ui/dialog';
+import { Dialog } from '@/common/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/common/components/ui/tabs';
 import { Popup } from './components/popup';
+import { TaskContainer } from './components/task-container/task-container.component';
 
 export function TasksView() {
   const finishedTasks = tasks.filter((task) => task.finished);
@@ -17,39 +17,27 @@ export function TasksView() {
       </div>
       <div className="flex flex-1 flex-col bg-background rounded-md overflow-auto overflow-x-hidden">
         <Header />
-        <div className="flex flex-1 items-center justify-between flex-col gap-8 px-16 pb-16">
-          <Dialog>
-            <Tabs defaultValue="no-finished" className="w-full">
-              <TabsList>
-                <TabsTrigger value="no-finished">A fazer</TabsTrigger>
-                <TabsTrigger value="finished">Concluídas</TabsTrigger>
-              </TabsList>
+        <Tabs defaultValue="no-finished" className="w-full">
+          <div className="flex flex-1 justify-between flex-col gap-4 px-16 pb-16 w-full">
+            <TabsList className="bg-transparent gap-1">
+              <TabsTrigger value="no-finished" className="w-[20%] data-[state=active]:bg-accent">
+                A fazer
+              </TabsTrigger>
+              <TabsTrigger value="finished" className="w-[20%] data-[state=active]:bg-accent">
+                Concluídas
+              </TabsTrigger>
+            </TabsList>
+            <Dialog>
               <TabsContent value="no-finished">
-                <div className="flex flex-1 flex-col items-center justify-start w-full gap-4">
-                  {noFinishedTasks.map((task, i) => {
-                    return (
-                      <DialogTrigger asChild key={i}>
-                        <Task data={task} />
-                      </DialogTrigger>
-                    );
-                  })}
-                </div>
+                <TaskContainer tasks={noFinishedTasks} />
               </TabsContent>
               <TabsContent value="finished">
-                <div className="flex flex-1 flex-col items-center justify-start w-full gap-4">
-                  {finishedTasks.map((task, i) => {
-                    return (
-                      <DialogTrigger asChild key={i}>
-                        <Task data={task} />
-                      </DialogTrigger>
-                    );
-                  })}
-                </div>
+                <TaskContainer tasks={finishedTasks} />
               </TabsContent>
-            </Tabs>
-            <Popup />
-          </Dialog>
-        </div>
+              <Popup />
+            </Dialog>
+          </div>
+        </Tabs>
       </div>
     </main>
   );
