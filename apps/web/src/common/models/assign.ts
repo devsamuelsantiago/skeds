@@ -1,5 +1,5 @@
 export type AssignType = {
-  id: number;
+  id: string;
   title: string;
   creator: string;
   dueDate: Date;

@@ -5,6 +5,8 @@
     "start": "lerna run start",
     "test": "lerna run test",
     "dev": "lerna run dev",
+    "dev:web": "yarn workspace @skeds/web dev",
+    "dev:api": "yarn workspace @skeds/api dev",
     "clean": "yarn dlx rimraf node_modules */**/node_modules",
     "reset": "yarn clean && yarn"
   },

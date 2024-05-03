@@ -2,7 +2,7 @@ import { TaskType } from '@/common/models/task';
 
 export const tasks: TaskType[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Tarefa de história',
     creator: 'Prof.ª Eliane',
     dueDate: new Date(2024, new Date().getMonth(), 5),
@@ -15,7 +15,7 @@ export const tasks: TaskType[] = [
     finished: false,
   },
   {
-    id: 2,
+    id: '2',
     title: 'Trabalho de Matemática',
     creator: 'Prof. Carlos',
     dueDate: new Date(2024, new Date().getMonth(), 10),
@@ -27,7 +27,7 @@ export const tasks: TaskType[] = [
     finished: false,
   },
   {
-    id: 3,
+    id: '3',
     title: 'Relatório de Ciências',
     creator: 'Prof.ª Marta',
     dueDate: new Date(2024, new Date().getMonth(), 15),
@@ -39,7 +39,7 @@ export const tasks: TaskType[] = [
     finished: false,
   },
   {
-    id: 4,
+    id: '4',
     title: 'Ensaio de Português',
     creator: 'Prof.ª Helena',
     dueDate: new Date(2024, new Date().getMonth(), 20),
@@ -52,7 +52,7 @@ export const tasks: TaskType[] = [
     finished: false,
   },
   {
-    id: 5,
+    id: '5',
     title: 'Projeto de Arte',
     creator: 'Prof.ª Lígia',
     dueDate: new Date(2024, new Date().getMonth(), 25),
@@ -64,7 +64,7 @@ export const tasks: TaskType[] = [
     finished: false,
   },
   {
-    id: 6,
+    id: '6',
     title: 'Pesquisa de Geografia',
     creator: 'Prof. Roberto',
     dueDate: new Date(2024, new Date().getMonth(), 30),
@@ -76,7 +76,7 @@ export const tasks: TaskType[] = [
     finished: false,
   },
   {
-    id: 7,
+    id: '7',
     title: 'Pesquisa de Geografia',
     creator: 'Prof. Roberto',
     dueDate: new Date(2024, new Date().getMonth(), 30),
