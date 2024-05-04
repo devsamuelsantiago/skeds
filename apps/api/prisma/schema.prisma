@@ -1,0 +1,127 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  email          String         @unique
+  password       String
+  submittedTasks String[]
+  notifications  Notification[]
+  Class          Class?         @relation(fields: [classId], references: [id])
+  classId        String?        @db.ObjectId
+  Organization   Organization?  @relation(fields: [organizationId], references: [id])
+  organizationId String?        @db.ObjectId
+}
+
+model Class {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  identification String
+  students       User[]
+  comunications  Comunication[]
+
+  tasks    TaskClass[]
+  teachers ClassTeacher[]
+}
+
+model Teacher {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  email         String         @unique
+  password      String
+  subjects      String[]
+  createdTasks  Task[]
+  notifications Notification[]
+
+  Organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId String?       @db.ObjectId
+
+  classes ClassTeacher[]
+}
+
+model ClassTeacher {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  class      Class    @relation(fields: [classId], references: [id])
+  classId    String   @db.ObjectId
+  teacher    Teacher  @relation(fields: [teacherId], references: [id])
+  teacherId  String   @db.ObjectId
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  @@unique([classId, teacherId])
+}
+
+model Organization {
+  id                String         @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  email             String         @unique
+  password          String
+  teachers          Teacher[]
+  students          User[]
+  comunicationsSent Comunication[]
+  notifications     Notification[]
+}
+
+model Comunication {
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  description    String
+  content        String
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  Class          Class?        @relation(fields: [classId], references: [id])
+  classId        String?       @db.ObjectId
+  Organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId String?       @db.ObjectId
+}
+
+model Task {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  content     String
+  dueDate     DateTime
+  status      String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  Teacher     Teacher?    @relation(fields: [teacherId], references: [id])
+  teacherId   String?     @db.ObjectId
+  
+  classes     TaskClass[]
+}
+
+model TaskClass {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  task    Task   @relation(fields: [taskId], references: [id])
+  taskId  String @db.ObjectId
+  class   Class  @relation(fields: [classId], references: [id])
+  classId String @db.ObjectId
+
+  @@unique([taskId, classId])
+}
+
+model Notification {
+  id             String        @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  content        String
+  createdAt      DateTime      @default(now())
+  read           Boolean       @default(false)
+  Teacher        Teacher?      @relation(fields: [teacherId], references: [id])
+  teacherId      String?       @db.ObjectId
+  Organization   Organization? @relation(fields: [organizationId], references: [id])
+  organizationId String?       @db.ObjectId
+  User           User?         @relation(fields: [userId], references: [id])
+  userId         String?       @db.ObjectId
+}
