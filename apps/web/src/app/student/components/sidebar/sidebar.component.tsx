@@ -19,7 +19,7 @@ export function Sidebar() {
           <DrawingPinIcon width={18} height={18} />
           Comunicados
         </NavItem>
-        <NavItem href="/student/releases">
+        <NavItem href="/student/events">
           <CalendarIcon width={18} height={18} />
           Eventos
         </NavItem>
