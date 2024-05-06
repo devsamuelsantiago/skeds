@@ -3,8 +3,8 @@ import { Header } from '../components/header';
 import { tasks } from '@/test_api/tasks';
 import { Dialog } from '@/common/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/common/components/ui/tabs';
-import { Popup } from './components/popup';
-import { TaskContainer } from './components/task-container/task-container.component';
+import { Popup } from '../../../common/components/popup';
+import { AssignContainer } from '../../../common/components/assign-container/assign-container.component';
 
 export function TasksView() {
   const finishedTasks = tasks.filter((task) => task.finished);
@@ -29,10 +29,10 @@ export function TasksView() {
             </TabsList>
             <Dialog>
               <TabsContent value="no-finished">
-                <TaskContainer tasks={noFinishedTasks} />
+                <AssignContainer tasks={noFinishedTasks} />
               </TabsContent>
               <TabsContent value="finished">
-                <TaskContainer tasks={finishedTasks} />
+                <AssignContainer tasks={finishedTasks} />
               </TabsContent>
               <Popup />
             </Dialog>

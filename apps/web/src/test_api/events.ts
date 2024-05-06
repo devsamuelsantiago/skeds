@@ -8,6 +8,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 1),
     createdAt: new Date(),
     creator: 'Prof. Alberto',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -20,6 +21,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 7),
     createdAt: new Date(),
     creator: 'Prof.ª Carla',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -32,6 +34,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 12),
     createdAt: new Date(),
     creator: 'Escola XYZ',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -44,6 +47,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 16), // Termina no dia seguinte
     createdAt: new Date(),
     creator: 'Departamento de Artes',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -56,6 +60,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 21), // Termina um dia depois
     createdAt: new Date(),
     creator: 'Escola XYZ',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -68,6 +73,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 25), // Termina um dia depois
     createdAt: new Date(),
     creator: 'Secretaria de Saúde',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -80,6 +86,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 29), // Termina dois dias depois
     createdAt: new Date(),
     creator: 'Departamento de História',
+    viewed: false,
     groups: [],
     files: [],
     content:
@@ -92,6 +99,7 @@ export const events: EventType[] = [
     endDate: new Date(2024, new Date().getMonth(), 31),
     createdAt: new Date(),
     creator: 'Escola XYZ',
+    viewed: false,
     groups: [],
     files: [],
     content:
