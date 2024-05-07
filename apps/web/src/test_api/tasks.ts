@@ -14,6 +14,7 @@ export const tasks: TaskType[] = [
     content:
       'Tarefa de história destinada aos alunos do 3º ano do ensino médio, cujo o objetivo é aprender mais sobre a história do Japão e seu contexto socioeconômico.',
     finished: false,
+    filesUpload: true,
   },
   {
     id: '2',
@@ -27,6 +28,7 @@ export const tasks: TaskType[] = [
     files: [],
     content: 'Resolver uma série de exercícios sobre funções quadráticas.',
     finished: false,
+    filesUpload: true,
   },
   {
     id: '3',
@@ -40,6 +42,7 @@ export const tasks: TaskType[] = [
     files: [],
     content: 'Elaborar um relatório sobre os resultados do experimento de química feito em laboratório.',
     finished: false,
+    filesUpload: true,
   },
   {
     id: '4',
@@ -54,6 +57,7 @@ export const tasks: TaskType[] = [
     content:
       "Escrever um ensaio crítico sobre 'Memórias Póstumas de Brás Cubas', destacando as principais correntes filosóficas presentes na obra.",
     finished: false,
+    filesUpload: true,
   },
   {
     id: '5',
@@ -67,6 +71,7 @@ export const tasks: TaskType[] = [
     files: [],
     content: 'Criar uma composição artística baseada nas técnicas estudadas de pintura surrealista.',
     finished: false,
+    filesUpload: true,
   },
   {
     id: '6',
@@ -80,6 +85,7 @@ export const tasks: TaskType[] = [
     files: [],
     content: 'Realizar uma pesquisa sobre os impactos das mudanças climáticas nos diferentes continentes.',
     finished: false,
+    filesUpload: true,
   },
   {
     id: '7',
@@ -93,5 +99,6 @@ export const tasks: TaskType[] = [
     files: [],
     content: 'Realizar uma pesquisa sobre os impactos das mudanças climáticas nos diferentes continentes.',
     finished: true,
+    filesUpload: false,
   },
 ];
