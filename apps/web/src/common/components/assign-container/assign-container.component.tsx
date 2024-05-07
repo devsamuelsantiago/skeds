@@ -7,9 +7,10 @@ import { ReleaseType } from '@/common/models/realese';
 
 type AssignContainerProps = {
   tasks: ReleaseType[] | TaskType[] | EventType[];
+  dueDateLabel?: string;
 };
 
-export function AssignContainer({ tasks }: AssignContainerProps) {
+export function AssignContainer({ tasks, dueDateLabel = 'Entrega:' }: AssignContainerProps) {
   const { setAssign } = useAssignContext();
 
   return (
@@ -24,7 +25,7 @@ export function AssignContainer({ tasks }: AssignContainerProps) {
                 </div>
                 {'dueDate' in task && (
                   <div className="flex gap-1 items-center justify-center">
-                    <p className="text-sm font-medium text-muted-foreground">Entrega:</p>
+                    <p className="text-sm font-medium text-muted-foreground">{dueDateLabel}</p>
                     <h3 className="text-sm font-medium">{task.dueDate.toLocaleDateString()}</h3>
                   </div>
                 )}

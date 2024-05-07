@@ -3,7 +3,11 @@ import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/c
 import { useAssignContext } from '../../providers/assign-provider';
 import { Button } from '@/common/components/ui/button';
 
-export function Popup() {
+type PopupProps = {
+  withoutButtons?: boolean;
+};
+
+export function Popup({ withoutButtons }: PopupProps) {
   const { assign } = useAssignContext();
 
   return assign ? (
@@ -21,14 +25,18 @@ export function Popup() {
           )}
           <DialogDescription>{assign?.content}</DialogDescription>
         </div>
-        <div className={`flex ${'dueDate' in assign ? 'justify-between' : 'justify-end'} items-center h-min`}>
-          {'dueDate' in assign && <Button variant="outline">Carregar arquivos</Button>}
-          {'dueDate' in assign ? (
-            <Button variant="default">Entregar</Button>
-          ) : (
-            <Button variant="default">Marcar como lido</Button>
-          )}
-        </div>
+        {!withoutButtons && (
+          <div
+            className={`flex ${'filesUpload' in assign && assign.filesUpload === true ? 'justify-between' : 'justify-end'} items-center h-min`}
+          >
+            {'filesUpload' in assign && assign.filesUpload === true && (
+              <Button variant="outline">Carregar arquivos</Button>
+            )}
+            <Button variant="default">
+              {'filesUpload' in assign && assign.filesUpload === true ? 'Entregar tarefa' : 'Marcar como lido'}
+            </Button>
+          </div>
+        )}
       </div>
     </DialogContent>
   ) : (
