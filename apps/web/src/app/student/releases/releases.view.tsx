@@ -2,7 +2,7 @@ import { Sidebar } from '../components/sidebar';
 import { Header } from '../components/header';
 import { releases } from '@/test_api/releases';
 import { Dialog } from '@/common/components/ui/dialog';
-import { AssignContainer } from '@/common/components/assign-container/assign-container.component';
+import { AssignContainer } from '@/common/components/assign-container';
 import { Popup } from '@/common/components/popup';
 
 export function ReleasesView() {

@@ -3,8 +3,8 @@ import { Header } from '../components/header';
 import { tasks } from '@/test_api/tasks';
 import { Dialog } from '@/common/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/common/components/ui/tabs';
-import { Popup } from '../../../common/components/popup';
-import { AssignContainer } from '../../../common/components/assign-container/assign-container.component';
+import { AssignContainer } from '@/common/components/assign-container';
+import { Popup } from '@/common/components/popup';
 
 export function TasksView() {
   const finishedTasks = tasks.filter((task) => task.finished);
