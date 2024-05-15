@@ -1,6 +1,6 @@
 import { Sidebar } from './components/sidebar';
-import { Header } from './components/header';
 import { Calendar } from './components/calendar';
+import { Header } from '@/common/components/header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/common/components/ui/card';
 import { ChatBubbleIcon, DrawingPinIcon, Pencil2Icon } from '@radix-ui/react-icons';
 
@@ -10,7 +10,7 @@ export function StudentView() {
       <div className="bg-background rounded-md h-full">
         <Sidebar />
       </div>
-      <div className="flex flex-1 flex-col bg-background rounded-md overflow-scroll overflow-x-hidden">
+      <div className="flex flex-1 flex-col bg-background rounded-md overflow-auto overflow-x-hidden">
         <Header />
         <div className="flex flex-1 items-center justify-center flex-col gap-8 px-16 pb-16">
           <div className="w-full flex items-center justify-between">

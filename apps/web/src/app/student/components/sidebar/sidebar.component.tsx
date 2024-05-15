@@ -1,7 +1,7 @@
 'use client';
 import { NavigationMenu, NavigationMenuList } from '@/common/components/ui/navigation-menu';
 import { CalendarIcon, ChatBubbleIcon, DrawingPinIcon, HomeIcon, Pencil2Icon, PersonIcon } from '@radix-ui/react-icons';
-import { NavItem } from '../nav-item';
+import { NavItem } from '@/common/components/nav-item';
 
 export function Sidebar() {
   return (

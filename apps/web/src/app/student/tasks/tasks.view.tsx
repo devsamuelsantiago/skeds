@@ -1,10 +1,10 @@
 import { Sidebar } from '../components/sidebar';
-import { Header } from '../components/header';
+import { Header } from '../../../common/components/header';
 import { tasks } from '@/test_api/tasks';
 import { Dialog } from '@/common/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/common/components/ui/tabs';
-import { Popup } from '../../../common/components/popup';
-import { AssignContainer } from '../../../common/components/assign-container/assign-container.component';
+import { AssignContainer } from '@/common/components/assign-container';
+import { Popup } from '@/common/components/popup';
 
 export function TasksView() {
   const finishedTasks = tasks.filter((task) => task.finished);
@@ -15,7 +15,7 @@ export function TasksView() {
       <div className="bg-background rounded-md h-full">
         <Sidebar />
       </div>
-      <div className="flex flex-1 flex-col bg-background rounded-md overflow-scroll overflow-x-hidden">
+      <div className="flex flex-1 flex-col bg-background rounded-md overflow-auto overflow-x-hidden">
         <Header />
         <Tabs defaultValue="no-finished" className="w-full">
           <div className="flex flex-1 justify-between flex-col gap-4 px-16 pb-16 w-full">
