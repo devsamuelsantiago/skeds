@@ -9,18 +9,13 @@ type CreateUserWithEmailAndPasswordParams = {
   password: string;
 };
 
-export const createUserWithEmailAndPassword = ({ email, password }: CreateUserWithEmailAndPasswordParams) => {
-  createFirebaseUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      console.log(errorCode, errorMessage);
-    });
+export const createUserWithEmailAndPassword = async ({ email, password }: CreateUserWithEmailAndPasswordParams) => {
+  try {
+    const { user } = await createFirebaseUserWithEmailAndPassword(auth, email, password);
+    return user;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 type SignInWithEmailAndPasswordParams = {
@@ -28,16 +23,11 @@ type SignInWithEmailAndPasswordParams = {
   password: string;
 };
 
-export const signInWithEmailAndPassword = ({ email, password }: SignInWithEmailAndPasswordParams) => {
-  signFirebaseInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      console.log(user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-
-      console.log(errorCode, errorMessage);
-    });
+export const signInWithEmailAndPassword = async ({ email, password }: SignInWithEmailAndPasswordParams) => {
+  try {
+    const { user } = await signFirebaseInWithEmailAndPassword(auth, email, password);
+    return user;
+  } catch (error) {
+    console.error(error);
+  }
 };

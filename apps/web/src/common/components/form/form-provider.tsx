@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from 'react
 type FormProps = {
   children: React.ReactNode;
   onSubmit: (values: Record<string, unknown>) => void;
-};
+} & Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onSubmit'>;
 
 type FormContextProps = {
   fields: Record<string, unknown>;
@@ -17,7 +17,7 @@ type FormContextProps = {
 
 const FormContext = createContext<FormContextProps>(undefined!);
 
-export const Form = ({ children, onSubmit }: FormProps) => {
+export const Form = ({ children, onSubmit, ...rest }: FormProps) => {
   const [fields, setFields] = useState<Record<string, unknown>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [errorMessages, setErrorMessages] = useState<Record<string, boolean>>({});
@@ -47,7 +47,7 @@ export const Form = ({ children, onSubmit }: FormProps) => {
 
   return (
     <FormContext.Provider value={values}>
-      <form method="POST" onSubmit={(e) => handleSubmit(e)}>
+      <form method="POST" onSubmit={(e) => handleSubmit(e)} {...rest}>
         {children}
       </form>
     </FormContext.Provider>

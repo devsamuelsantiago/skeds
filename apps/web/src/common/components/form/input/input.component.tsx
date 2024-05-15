@@ -12,18 +12,35 @@ type InputProps = {
   validation?: (keyof typeof FormValidation)[];
   value?: string;
   onChange?: (value: string) => void;
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value'>;
+  className?: string;
+  equalsTo?: string;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'className'>;
 
-export function Input({ name, label, mask, onChange, value: valueProp, validation, ...rest }: InputProps) {
-  const { setFields, errors, setErrors, errorMessages, setErrorMessages, fields } = useFormContext();
+export function Input({
+  name,
+  label,
+  mask,
+  onChange,
+  value: valueProp,
+  validation,
+  className,
+  equalsTo,
+  ...rest
+}: InputProps) {
+  const { setFields, errors, setErrors, errorMessages, setErrorMessages } = useFormContext();
   const [value, setValue] = useState<string>('');
 
   const handleError = (value: string = '') => {
     if (!validation) return;
-    const error = validation.reduce((acc, key) => {
-      const validationFn = FormValidation[key];
-      return validationFn(value) || acc;
-    }, '');
+    let error: string = '';
+    if (equalsTo) {
+      error = value !== equalsTo ? 'Os campos não são iguais' : '';
+    }
+    error =
+      validation.reduce((acc, key) => {
+        const validationFn = FormValidation[key];
+        return validationFn(value) || acc;
+      }, '') || error;
     if (error) {
       errors[name] !== error && setErrors((errors) => ({ ...errors, [name]: error }));
       return;
@@ -63,10 +80,16 @@ export function Input({ name, label, mask, onChange, value: valueProp, validatio
   }, [valueProp, handleChange]);
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <InputComponent onChange={(e) => handleChange(e.target.value)} name={name} value={value} {...rest} />
-      {errorMessages?.[name] && <p>{errors[name]}</p>}
+    <div className={`flex flex-col gap-2 ${className} ${errorMessages?.[name] && '[&_input]:border-destructive'}`}>
+      {label && (
+        <label htmlFor={name} className="text-base font-medium">
+          {label}
+        </label>
+      )}
+      <div className="flex flex-col gap-1">
+        <InputComponent onChange={(e) => handleChange(e.target.value)} name={name} value={value} {...rest} />
+        {errorMessages?.[name] && <p className="text-sm text-destructive pl-1">{errors[name]}</p>}
+      </div>
     </div>
   );
 }
