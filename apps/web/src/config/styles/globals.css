@@ -28,7 +28,7 @@
     --radius-sm: calc(0.5rem - 4px);
   }
 
-  .dark {
+  .dark, .dark-theme {
     --background: 240, 5.88%, 10%;
     --foreground: 210 40% 98%;
     --card: 240, 4.76%, 16.47%;
@@ -48,6 +48,98 @@
     --border: 240, 4.76%, 16.47%;
     --input: 240, 4.76%, 16.47%;
     --ring: 224.3 76.3% 48%;
+
+    /* Aesthetics */
+
+    /* backgrounds */
+    --green-1: #0c130d;
+    --green-2: #121b14;
+
+    --green-a1: #00bb0003;
+    --green-a2: #29f9570b;
+
+    --gray-1: #111113;
+    --gray-2: #19191b;
+
+    --gray-a1: #1111bb03;
+    --gray-a2: #cbcbf90b;
+
+    /* interactive components */
+    --green-3: #142d1a;
+    --green-4: #133c1e;
+    --green-5: #1a4a27;
+
+    --green-a3: #2bff5e1e;
+    --green-a4: #1cfb582f;
+    --green-a5: #37fc6c3e;
+
+    --gray-3: #222325;
+    --gray-4: #292a2e;
+    --gray-5: #303136;
+
+    --gray-a3: #d6e2f916;
+    --gray-a4: #d1d9f920;
+    --gray-a5: #d7ddfd28;
+
+    /* borders and separators */
+    --green-6: #225830;
+    --green-7: #2a693a;
+    --green-8: #307d45;
+
+    --green-a6: #4afd784d;
+    --green-a7: #54fd7f5f;
+    --green-a8: #56ff8474;
+
+    --gray-6: #393a40;
+    --gray-7: #46484f;
+    --gray-8: #5f606a;
+
+    --gray-a6: #d9defc33;
+    --gray-a7: #dae2fd43;
+    --gray-a8: #e0e3fd60;
+
+    /* solid colors */
+    --green-9: #3cdd71;
+    --green-10: #2ad266;
+
+    --green-a9: #44ff81db;
+    --green-a10: #30ff7acf;
+
+    --gray-9: #6c6e79;
+    --gray-10: #797b86;
+
+    --gray-a9: #e0e4fd70;
+    --gray-a10: #e3e7fd7e;
+
+    /* accessible text */
+    --green-11: #36d96d;
+    --green-12: #b0f3bd;
+
+    --green-a11: #3dfe7ed7;
+    --green-a12: #b8fec5f3;
+
+    --gray-11: #b2b3bd;
+    --gray-12: #eeeef0;
+
+    --gray-a11: #eff0feb9;
+    --gray-a12: #fdfdffef;
+
+    /* --------------------- */
+    --green-contrast: #132717;
+    --green-surface: #13251780;
+    --green-indicator: #3cdd71;
+    --green-track: #3cdd71;
+
+    --gray-contrast: #ffffff;
+    --gray-surface: rgba(0, 0, 0, 0.05);
+    --gray-indicator: #6c6e79;
+    --gray-track: #6c6e79;
+  }
+}
+
+@layer base {
+  .remove-bg {
+    mix-blend-mode: multiply;
   }
 }
 
