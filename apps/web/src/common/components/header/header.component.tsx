@@ -15,12 +15,12 @@ export function Header({ withoutBack = false, sidebarOpen }: HeaderProps) {
     <header className="flex items-center justify-between top-0 left-0 absolute p-2 gap-4 w-full">
       <div>
         {sidebarOpen && (
-          <Button onClick={sidebarOpen} variant="link" className="roundend-md md:hidden">
+          <Button onClick={sidebarOpen} variant="link" className="roundend-md md:hidden text-foreground">
             <HamburgerMenuIcon width={20} height={20} />
           </Button>
         )}
         {!withoutBack && (
-          <Button onClick={() => back()} variant="link" className="roundend-md">
+          <Button onClick={() => back()} variant="link" className="roundend-md text-foreground">
             <ChevronLeftIcon width={20} height={20} />
           </Button>
         )}
