@@ -1,24 +1,19 @@
 type GridProps = {
   label: string;
-  type: 'class' | 'subject';
   onClick?: () => void;
   asAdd?: boolean;
+  icon?: React.ReactNode;
+  className?: string;
 };
 
-export const Grid = ({ label, type, onClick, asAdd }: GridProps) => {
-  return type === 'class' ? (
+export const Grid = ({ label, onClick, asAdd, icon, className }: GridProps) => {
+  return (
     <div
       onClick={onClick}
-      className={`${asAdd && 'border-dashed text-muted-foreground'} cursor-pointer w-full py-2 flex items-center justify-center border border-input bg-background shadow-md hover:bg-accent hover:text-accent-foreground rounded-md`}
+      className={`${asAdd && 'border border-dashed text-muted-foreground !justify-center'} flex items-center justify-between w-full py-4 px-6 text-md bg-card shadow-md transition-transform hover:translate-x-1 rounded-md ${className}`}
     >
       {label}
-    </div>
-  ) : (
-    <div
-      onClick={onClick}
-      className={`${asAdd && 'border-dashed text-muted-foreground'} cursor-pointer w-full py-2 flex items-center justify-center border border-input bg-background shadow-md hover:bg-accent hover:text-accent-foreground rounded-md`}
-    >
-      {label}
+      {icon && icon}
     </div>
   );
 };

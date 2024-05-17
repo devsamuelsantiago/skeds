@@ -28,26 +28,33 @@
     --radius-sm: calc(0.5rem - 4px);
   }
 
-  .dark {
-    --background: 240, 5.88%, 10%;
-    --foreground: 210 40% 98%;
-    --card: 240, 4.76%, 16.47%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 240, 4.76%, 16.47%;
-    --secondary: 210 40% 98%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 240, 4.76%, 16.47%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240, 4.76%, 16.47%;
-    --input: 240, 4.76%, 16.47%;
-    --ring: 224.3 76.3% 48%;
+  .dark,
+  .dark-theme {
+    --background: 240, 2%, 5%;
+    --foreground: 240, 10%, 90%;
+    --card: 240, 2%, 7%;
+    --card-foreground: 240, 10%, 90%;
+    --popover: 240, 2%, 7%;
+    --popover-foreground: 240, 10%, 90%;
+    --primary: 135, 67.6%, 53.3%;
+    --primary-foreground: 240, 2%, 5%;
+    --secondary: 135, 67.6%, 47.5%;
+    --secondary-foreground: 240, 10%, 90%;
+    --muted: 240, 2%, 14%;
+    --muted-foreground: 240, 5%, 65%;
+    --accent: 135, 40%, 60%;
+    --accent-foreground: 240, 2%, 5%;
+    --destructive: 0, 62.8%, 30.6%;
+    --destructive-foreground: 240, 10%, 90%;
+    --border: 240, 2%, 18%;
+    --input: 240, 2%, 22%;
+    --ring: 224.3, 76.3%, 48%;
+  }
+}
+
+@layer base {
+  .remove-bg {
+    mix-blend-mode: multiply;
   }
 }
 

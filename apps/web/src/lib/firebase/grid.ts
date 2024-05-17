@@ -27,7 +27,26 @@ type DeleteGridParams = {
 
 export const deleteGrid = async ({ organizationUid, gridUid, type }: DeleteGridParams) => {
   try {
-    await remove(ref(database, `organizations/${organizationUid}/grid/${type}/${gridUid}`));
+    remove(ref(database, `organizations/${organizationUid}/grid/${type}/${gridUid}`));
+    if (type === 'subjects') {
+      get(ref(database, `organizations/${organizationUid}/grid/classes`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          const classes = snapshot.val();
+          Object.keys(classes).forEach((key) => {
+            const classSubjects = classes[key].subjects;
+            if (classSubjects && classSubjects[gridUid]) {
+              delete classSubjects[gridUid];
+              updateGrid({
+                organizationUid,
+                gridUid: key,
+                type: 'classes',
+                data: { ...classes[key], subjects: classSubjects },
+              });
+            }
+          });
+        }
+      });
+    }
   } catch (error) {
     console.error(error);
   }
