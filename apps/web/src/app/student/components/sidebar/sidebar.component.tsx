@@ -27,7 +27,7 @@ export function Sidebar() {
           <ChatBubbleIcon width={18} height={18} />
           Conversas
         </NavItem>
-        <NavItem href="/perfil">
+        <NavItem href="/student/profile">
           <PersonIcon width={18} height={18} />
           Perfil
         </NavItem>

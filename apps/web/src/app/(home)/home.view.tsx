@@ -9,7 +9,7 @@ export default function HomeView() {
   const { user } = useUserContext();
 
   return (
-    <main className='bg-gradient-to-bl from-[#303136] to-[#111113] h-screen'>
+    <main className="bg-gradient-to-bl from-[#303136] to-[#111113] h-screen">
       <header className="flex justify-center lg:justify-between w-full h-24 px-28">
         <div className="flex items-center">
           <Link href="#">
@@ -36,19 +36,19 @@ export default function HomeView() {
           </div>
           <div className="flex items-center gap-4">
             {user ? (
-              <Button variant="default" className="w-28 rounded-full bg-[color:var(--green-10)]" asChild>
+              <Button variant="default" className="w-28 rounded-full">
                 <Link href={`/${user.type}`} className="font-semibold text-white">
                   Dashboard
                 </Link>
               </Button>
             ) : (
               <>
-                <Button variant="default" className="w-28 rounded-full bg-[color:var(--green-10)]" asChild>
+                <Button variant="default" className="w-28 rounded-full">
                   <Link href="/auth/login" className="font-semibold text-white">
                     Entrar
                   </Link>
                 </Button>
-                <Button variant="outline" className="w-40 rounded-full bg-[color:var(--green-10)]" asChild>
+                <Button variant="outline" className="w-40 rounded-full">
                   <Link href="/auth/login" className="font-semibold text-white">
                     Quero Fazer Parte
                   </Link>
@@ -58,7 +58,7 @@ export default function HomeView() {
           </div>
         </div>
       </header>
-      <div className='flex justify-center lg:justify-between p-28'>
+      <div className="flex justify-center lg:justify-between p-28">
         <div className="flex flex-col gap-8  w-[50%]">
           <h1 className="text-6xl font-bold space-y-2">
             <p>Frase</p>
@@ -71,7 +71,7 @@ export default function HomeView() {
           </span>
         </div>
         <div className="w-[50%] hidden lg:flex justify-center items-center">
-          <Image alt="Image" src={Sked} className='invert rotate-12' width={400} />
+          <Image alt="Image" src={Sked} className="invert rotate-12" width={400} />
         </div>
       </div>
     </main>
